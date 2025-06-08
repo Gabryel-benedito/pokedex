@@ -1,0 +1,70 @@
+body {
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/008/310/098/large/joaquin-ponce-vives-garchomp-final-joaquin-ponce-baja.jpg?1511916410);
+}
+
+.tela {
+    background-color: red;
+    border: 5px solid rgb(135, 11, 11);
+    height: 700px;
+    width: 500px;
+    border-radius: 20px;
+    padding-top: 10px;
+    color: #fff;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 15px #000;
+    
+
+}
+
+#fundo {
+    background-color: #000;
+    height: 390px;
+    width: 400px;
+    background-image: url(https://wallpaperaccess.com/full/3551101.png);
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+#pk {
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    transition: all 0.4s ease;
+}
+
+button {
+    height: 30px;
+    width: 120px;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #666;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #000;
+    transition: all 0.4s ease;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    height: 47px;
+    width: 150px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 4px 5px 13px #000;
+}
+
+#pk:focus {
+    height: 40px;
+    width: 227px;
+    background-color: #483f3f;
+    color: #fff;
+    box-shadow: 4px 5px 13px #000;
+    font-size: 20px;
+}
