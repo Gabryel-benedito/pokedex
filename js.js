@@ -7,13 +7,11 @@ const Butmega = document.getElementById("but-mega");
 const tipo1 = document.getElementById("tipo1");
 const tipo2 = document.getElementById("tipo2");
 const pedra = document.getElementById("pedra");
-let contador = 0;
 
 
 function gerarPokemon() {
     const url = "https://pokeapi.co/api/v2/pokemon/" + input.value.toLowerCase();
     if (input.length === 0) {
-        input = contador
     }
     fetch(url)
         .then(response => response.json())

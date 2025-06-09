@@ -43,11 +43,7 @@ function gerarPokemon() {
             }
 
 
-        }).catch(error => {
-            alert("Erro ao buscar dados do Pokémon:" + error);
-            nome.innerText = "Pokémon não encontrado";
-        });
-}
+        })
 
 
 
@@ -102,6 +98,10 @@ function mudaImagem(direcao) {
 
 
 
-
+input.addEventListener("keypress" , (evento) =>{
+    if(evento.key == 'Enter'){
+        gerarPokemon()
+    }
+})
 but.addEventListener("click", gerarPokemon)
 img.addEventListener("click", () => mudaImagem(-1))
