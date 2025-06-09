@@ -8,7 +8,7 @@ const tipo2 = document.getElementById("tipo2");
 function gerarPokemon() {
     const url = "https://pokeapi.co/api/v2/pokemon/" + input.value.toLowerCase();
 
-    
+
 
     fetch(url)
         .then(response => response.json())
@@ -46,6 +46,7 @@ function gerarPokemon() {
         })
 
 
+}
 
 
 function mudaImagem(direcao) {
@@ -98,8 +99,8 @@ function mudaImagem(direcao) {
 
 
 
-input.addEventListener("keypress" , (evento) =>{
-    if(evento.key == 'Enter'){
+input.addEventListener("keypress", (evento) => {
+    if (evento.key == 'Enter') {
         gerarPokemon()
     }
 })
