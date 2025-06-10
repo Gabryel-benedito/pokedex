@@ -11,34 +11,71 @@
 
 <body>
 
-    <div class="tela">
-        <h1>Pokedex</h1>
+    <div class="card-container">
 
 
+         <div
+             class="flip-card"
+              role="button" tabindex="0"
+               aria-pressed="false"
+                aria-label="Flip card to see more content"
+                 id="flipCard">
 
-        <div id="fundo">
 
-            <p id="nome"></p>
+        <div class="tela flip-card__face flip-card__face--front">
 
-            <img src="" id="img" title="Clique para alternar imagem" alt="">
 
-            <div class="tipos">
-                <img src="" id="tipo1"  alt="">
-                <img src="" id="tipo2" alt="">
+            <h1>Pokedex</h1>
+            <div id="fundo">
+                <p id="nome"></p>
+                <img src="" id="img" title="Clique para alternar imagem" alt="">
+                <div class="tipos">
+                    <img src="" id="tipo1" alt="">
+                    <img src="" id="tipo2" alt="">
+                </div>
             </div>
+
+
+            <input type="text" id="pk" placeholder="Pressione Enter para buscar" autofocus>
+            <button id="but"> Pesquisar </button> <br>
+
+            <button id="virar"> virar o card </button>
+             
+
 
         </div>
 
-        <input type="text" id="pk" placeholder="Nome ou ID do Pokémon">
-
-        <button id="but">pesquisar</button><br>
 
 
+        <div class=" tela flip-card__face flip-card__face--back" id="costas">
+
+             <h1>Mega</h1>
+            <div id="fundo2">
+                <p id="nome2"></p>
+                <img src="" id="img2" title="Clique para alternar imagem" alt="">
+                <div class="tipos">
+                    <img src="" id="Tipo1" alt="">
+                    <img src="" id="Tipo2" alt="">
+                </div>
+            </div>
+
+            <button id="virarCostas"> virar o card </button>
+             
+
+
+        </div>
+
+        </div>
+
+        </div>
     </div>
 
 
 
+
     <script src="srcipt.js"></script>
+    
+
 </body>
 
 </html>

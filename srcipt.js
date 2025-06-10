@@ -1,9 +1,13 @@
 const input = document.getElementById("pk");
 const but = document.getElementById("but");
 const img = document.getElementById("img");
+const imgCostas = document.getElementById("img2");
 const nome = document.getElementById("nome");
+const nomeCostas = document.getElementById("nome2");
 const tipo1 = document.getElementById("tipo1");
 const tipo2 = document.getElementById("tipo2");
+const tipo1Costas = document.getElementById("Tipo1");
+const tipo2Costas = document.getElementById("Tipo2");
 
 function gerarPokemon() {
     const url = "https://pokeapi.co/api/v2/pokemon/" + input.value.toLowerCase();
@@ -16,21 +20,43 @@ function gerarPokemon() {
         .then((dados) => {
 
             nome.innerText = dados.name.toUpperCase() + "  #" + dados.id;
-            img.src = dados.sprites.other.showdown.front_default
+            nomeCostas.innerText = dados.name.toUpperCase() + "  #" + dados.id;
+
+            if (dados.sprites.other.showdown.front_default == null) {
+                img.src = dados.sprites.other.home.front_default
+                imgCostas.src = dados.sprites.other.home.front_default
+            } else {
+                img.src = dados.sprites.other.showdown.front_default
+                imgCostas.src = dados.sprites.other.showdown.front_default
+            }
             img.style.height = "200px"
             img.style.width = "200px"
             img.style.cursor = "pointer";
             img.style.padding = "20px";
 
+            imgCostas.style.height = "200px"
+            imgCostas.style.width = "200px"
+            imgCostas.style.cursor = "pointer";
+            imgCostas.style.padding = "20px";
+
             nome.style.fontSize = "30px";
             nome.style.textAlign = "center";
             nome.style.color = "black";
+
+            nomeCostas.style.fontSize = "30px";
+            nomeCostas.style.textAlign = "center";
+            nomeCostas.style.color = "black";
 
             tipo1.src = `imagens/${dados.types[0].type.name}.png `
             tipo1.style.height = "50px"
             tipo1.style.width = "50px"
             tipo1.style.paddingTop = "20px";
             tipo1.title = dados.types[0].type.name;
+            tipo1Costas.src = `imagens/${dados.types[0].type.name}.png `
+            tipo1Costas.style.height = "50px"
+            tipo1Costas.style.width = "50px"
+            tipo1Costas.style.paddingTop = "20px";
+            tipo1Costas.title = dados.types[0].type.name;
 
             if (dados.types.length >= 1) {
                 tipo2.src = `imagens/${dados.types[1].type.name}.png`;
@@ -38,6 +64,12 @@ function gerarPokemon() {
                 tipo2.style.width = "50px";
                 tipo2.style.paddingTop = "20px";
                 tipo2.title = dados.types[1].type.name;
+
+                tipo2Costas.src = `imagens/${dados.types[1].type.name}.png`;
+                tipo2Costas.style.height = "50px";
+                tipo2Costas.style.width = "50px";
+                tipo2Costas.style.paddingTop = "20px";
+                tipo2Costas.title = dados.types[1].type.name;
             } else {
                 tipo2.style.display = "none";
             }
@@ -66,15 +98,22 @@ function mudaImagem(direcao) {
             function fadeToImage(newSrc) {
                 img.style.transition = "opacity 0.3s ease";
                 img.style.opacity = 0;
+
+                imgCostas.style.transition = "opacity 0.3s ease";
+                imgCostas.style.opacity = 0;
                 setTimeout(() => {
-                    img.src = newSrc;
-                    img.style.opacity = 1;
+                    imgCostas.src = newSrc;
+                    imgCostas.style.opacity = 1;
                 }, 300);
             }
 
 
             img.style.height = "200px";
             img.style.width = "200px";
+            
+            imgCostas.style.height = "200px";
+            imgCostas.style.width = "200px";
+
             // Verifica o índice da imagem atual
             let indiceAtual = imagens.indexOf(img.src);
             if (indiceAtual === -1) {
@@ -88,6 +127,7 @@ function mudaImagem(direcao) {
                 indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length; // Volta para a imagem anterior
             }
             img.src = imagens[indiceAtual];
+            imgCostas.src = imagens[indiceAtual];
 
 
 
@@ -97,8 +137,30 @@ function mudaImagem(direcao) {
 }
 
 
+const flipCard = document.getElementById('flipCard');
+const virar = document.getElementById('virar');
+const virarCostas = document.getElementById('virarCostas');
+
+function toggleFlip() {
+    const isFlipped = flipCard.classList.toggle('is-flipped');
+    flipCard.setAttribute('aria-pressed', isFlipped);
+}
 
 
+function trocarFundo() {
+    const body = document.body;
+    body.style.backgroundImage = "url('https://wallpapercave.com/wp/wp3214959.jpg')";
+}
+
+function voltarFundo() {
+    const body = document.body;
+    body.style.backgroundImage = "url('https://cdna.artstation.com/p/assets/images/images/008/310/098/large/joaquin-ponce-vives-garchomp-final-joaquin-ponce-baja.jpg?1511916410')";
+}
+
+
+
+
+virar.addEventListener('click', toggleFlip);
 input.addEventListener("keypress", (evento) => {
     if (evento.key == 'Enter') {
         gerarPokemon()
@@ -106,3 +168,7 @@ input.addEventListener("keypress", (evento) => {
 })
 but.addEventListener("click", gerarPokemon)
 img.addEventListener("click", () => mudaImagem(-1))
+imgCostas.addEventListener("click", () => mudaImagem(-1))
+virar.addEventListener("click", trocarFundo)
+virarCostas.addEventListener('click', voltarFundo);
+virarCostas.addEventListener("click", toggleFlip);  

@@ -2,20 +2,59 @@ body {
     background-image: url(https://cdna.artstation.com/p/assets/images/images/008/310/098/large/joaquin-ponce-vives-garchomp-final-joaquin-ponce-baja.jpg?1511916410);
 }
 
-.tela {
-    background-color: red;
-    border: 5px solid rgb(135, 11, 11);
-    height: 700px;
-    width: 500px;
-    border-radius: 20px;
-    padding-top: 10px;
-    color: #fff;
-    margin: auto;
-    margin-top: 10px;
-    text-align: center;
-    box-shadow: 4px 4px 15px #000;
-    
 
+:root {
+    --card-width: 400px;
+    --card-height: 100px;
+    --transition-duration: 0.7s;
+    --border-radius: 15px;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --text-color: #374151;
+    --background-front: #ffffff;
+    --background-back: #f3f4f6;
+}
+
+.flip-card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    transition: transform var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.flip-card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-container {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.flip-card__face {
+    position: absolute;
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: var(--border-radius);
+    backface-visibility: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.flip-card__face--front {
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.flip-card__face--back {
+    background-color: var(--background-back);
+    color: var(--text-color);
+    transform: rotateY(180deg);
+    font-size: 20px;
+    line-height: 1.4;
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 #fundo {
@@ -49,7 +88,8 @@ button {
     cursor: pointer;
     box-shadow: 2px 2px 5px #000;
     transition: all 0.4s ease;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -62,9 +102,39 @@ button:hover {
 
 #pk:focus {
     height: 40px;
-    width: 227px;
+    width: 280px;
     background-color: #483f3f;
     color: #fff;
     box-shadow: 4px 5px 13px #000;
     font-size: 20px;
+}
+
+
+
+.tela {
+    background-color: red;
+    border: 5px solid rgb(135, 11, 11);
+    height: 700px;
+    width: 500px;
+    border-radius: 20px;
+    padding-top: 10px;
+    color: #fff;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 15px #000;
+
+
+}
+
+#fundo2 {
+    background-color: #000;
+    height: 390px;
+    width: 400px;
+    background-size: cover;
+    background-image: url(https://wallpapercave.com/wp/wp2219771.jpg);
+    background-position: center;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 30px;
 }
