@@ -104,6 +104,10 @@ function mudaImagem(direcao) {
                 setTimeout(() => {
                     imgCostas.src = newSrc;
                     imgCostas.style.opacity = 1;
+
+                    img.src = newSrc;
+                    img.style.opacity = 1;
+                    
                 }, 300);
             }
 
