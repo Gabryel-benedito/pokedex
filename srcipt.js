@@ -15,8 +15,11 @@ const sp_ata = document.getElementById("sp-ata");
 const sp_def = document.getElementById("sp-def");
 const speed = document.getElementById("velocidade");
 
-function gerarPokemon() {
-    const url = "https://pokeapi.co/api/v2/pokemon/" + input.value.toLowerCase();
+var pokemonAtual = 1;
+
+
+function gerarPokemon(valor) {
+    const url = "https://pokeapi.co/api/v2/pokemon/" + valor
 
 
 
@@ -35,6 +38,9 @@ function gerarPokemon() {
                 img.src = dados.sprites.other.showdown.front_default
                 imgCostas.src = dados.sprites.other.showdown.front_default
             }
+
+            pokemonAtual = dados.id;
+            input.value = dados.id
             img.style.height = "200px"
             img.style.width = "200px"
             img.style.cursor = "pointer";
@@ -101,12 +107,26 @@ function gerarPokemon() {
                 tipo2.style.display = "none";
             }
 
-
-
+           
         })
 
 
 }
+
+
+function Proximo() {
+    pokemonAtual++
+    gerarPokemon(pokemonAtual)
+}
+
+function Anterior() {
+    if (pokemonAtual > 1) {
+        pokemonAtual--;
+        gerarPokemon(pokemonAtual);
+    }
+
+} 
+
 
 
 function mudaImagem(direcao) {
@@ -172,6 +192,8 @@ function mudaImagem(direcao) {
 const flipCard = document.getElementById('flipCard');
 const virar = document.getElementById('virar');
 const virarCostas = document.getElementById('virarCostas');
+const prox = document.getElementById('proximo');
+const ante = document.getElementById('anterior');
 
 function toggleFlip() {
     const isFlipped = flipCard.classList.toggle('is-flipped');
@@ -193,12 +215,14 @@ function voltarFundo() {
 
 
 virar.addEventListener('click', toggleFlip);
+prox.addEventListener('click', Proximo);
+ante.addEventListener('click', Anterior);
 input.addEventListener("keypress", (evento) => {
     if (evento.key == 'Enter') {
-        gerarPokemon()
+        gerarPokemon(input.value.toLowerCase())
     }
 })
-but.addEventListener("click", gerarPokemon)
+but.addEventListener("click", () => gerarPokemon(input.value.toLowerCase()));
 img.addEventListener("click", () => mudaImagem(-1))
 imgCostas.addEventListener("click", () => mudaImagem(-1))
 virar.addEventListener("click", trocarFundo)
