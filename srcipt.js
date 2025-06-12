@@ -8,6 +8,12 @@ const tipo1 = document.getElementById("tipo1");
 const tipo2 = document.getElementById("tipo2");
 const tipo1Costas = document.getElementById("Tipo1");
 const tipo2Costas = document.getElementById("Tipo2");
+const hp = document.getElementById("hp");
+const ataque = document.getElementById("ataque");
+const defesa = document.getElementById("defesa");
+const sp_ata = document.getElementById("sp-ata");
+const sp_def = document.getElementById("sp-def");
+const speed = document.getElementById("velocidade");
 
 function gerarPokemon() {
     const url = "https://pokeapi.co/api/v2/pokemon/" + input.value.toLowerCase();
@@ -34,8 +40,8 @@ function gerarPokemon() {
             img.style.cursor = "pointer";
             img.style.padding = "20px";
 
-            imgCostas.style.height = "200px"
-            imgCostas.style.width = "200px"
+            imgCostas.style.height = "150px"
+            imgCostas.style.width = "150px"
             imgCostas.style.cursor = "pointer";
             imgCostas.style.padding = "20px";
 
@@ -47,15 +53,36 @@ function gerarPokemon() {
             nomeCostas.style.textAlign = "center";
             nomeCostas.style.color = "black";
 
+
+            hp.innerText = " HP: " + dados.stats[0].base_stat
+            hp.style.border = " 0.5px solid black ";
+
+            ataque.innerText = " ATAQUE: " + dados.stats[1].base_stat
+            ataque.style.border = " 0.5px solid black ";
+
+            defesa.innerText = " DEFESA: " + dados.stats[2].base_stat
+            defesa.style.border = " 0.5px solid black ";
+
+            sp_ata.innerText = " ATAQUE-ESPECIAL: " + dados.stats[3].base_stat
+            sp_ata.style.border = " 0.5px solid black ";
+
+            sp_def.innerText = " DEFESA-ESPECIAL: " + dados.stats[4].base_stat
+            sp_def.style.border = " 0.5px solid black ";
+
+            speed.innerText = " VELOCIDADE: " + dados.stats[5].base_stat
+            speed.style.border = " 0.5px solid black ";
+
+
+
             tipo1.src = `imagens/${dados.types[0].type.name}.png `
             tipo1.style.height = "50px"
             tipo1.style.width = "50px"
             tipo1.style.paddingTop = "20px";
             tipo1.title = dados.types[0].type.name;
             tipo1Costas.src = `imagens/${dados.types[0].type.name}.png `
-            tipo1Costas.style.height = "50px"
-            tipo1Costas.style.width = "50px"
-            tipo1Costas.style.paddingTop = "20px";
+            tipo1Costas.style.height = "35px"
+            tipo1Costas.style.width = "35px"
+            tipo1Costas.style.paddingTop = "5px";
             tipo1Costas.title = dados.types[0].type.name;
 
             if (dados.types.length >= 1) {
@@ -66,13 +93,14 @@ function gerarPokemon() {
                 tipo2.title = dados.types[1].type.name;
 
                 tipo2Costas.src = `imagens/${dados.types[1].type.name}.png`;
-                tipo2Costas.style.height = "50px";
-                tipo2Costas.style.width = "50px";
-                tipo2Costas.style.paddingTop = "20px";
+                tipo2Costas.style.height = "35px";
+                tipo2Costas.style.width = "35px";
+                tipo2Costas.style.paddingTop = "5px";
                 tipo2Costas.title = dados.types[1].type.name;
             } else {
                 tipo2.style.display = "none";
             }
+
 
 
         })
@@ -107,16 +135,16 @@ function mudaImagem(direcao) {
 
                     img.src = newSrc;
                     img.style.opacity = 1;
-                    
+
                 }, 300);
             }
 
 
             img.style.height = "200px";
             img.style.width = "200px";
-            
-            imgCostas.style.height = "200px";
-            imgCostas.style.width = "200px";
+
+            imgCostas.style.height = "150px";
+            imgCostas.style.width = "150px";
 
             // Verifica o índice da imagem atual
             let indiceAtual = imagens.indexOf(img.src);

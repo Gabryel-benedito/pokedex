@@ -14,70 +14,79 @@
     <div class="card-container">
 
 
-         <div
-             class="flip-card"
-              role="button" tabindex="0"
-               aria-pressed="false"
-                aria-label="Flip card to see more content"
-                 id="flipCard">
+        <div class="flip-card" role="button" tabindex="0" aria-pressed="false"
+            aria-label="Flip card to see more content" id="flipCard">
 
 
-        <div class="tela flip-card__face flip-card__face--front">
+            <div class="tela flip-card__face flip-card__face--front">
 
 
-            <h1>Pokedex</h1>
-            <div id="fundo">
-                <p id="nome"></p>
-                <img src="" id="img" title="Clique para alternar imagem" alt="">
-                <div class="tipos">
-                    <img src="" id="tipo1" alt="">
-                    <img src="" id="tipo2" alt="">
+                <h1>Pokedex</h1>
+                <div id="fundo">
+                    <p id="nome"></p>
+                    <img src="" id="img" title="Clique para alternar imagem" alt="">
+                    <div class="tipos">
+                        <img src="" id="tipo1" alt="">
+                        <img src="" id="tipo2" alt="">
+                    </div>
                 </div>
+
+
+                <input type="text" id="pk" placeholder="Pressione Enter para buscar" autofocus>
+                <button id="but"> Pesquisar </button> <br>
+
+                <button id="virar"> stats</button>
+
+
+
             </div>
 
 
-            <input type="text" id="pk" placeholder="Pressione Enter para buscar" autofocus>
-            <button id="but"> Pesquisar </button> <br>
 
-            <button id="virar"> virar o card </button>
-             
+            <div class=" tela flip-card__face flip-card__face--back" id="costas">
 
+                <h1>Stats</h1>
 
-        </div>
-
-
-
-        <div class=" tela flip-card__face flip-card__face--back" id="costas">
-
-             <h1>Stats</h1>
-            <div id="fundo2">
                 <p id="nome2"></p>
-                <img src="" id="img2" title="Clique para alternar imagem" alt="">
+                <div id="fundo2">
 
-                <div class="tipos">
-                    <img src="" id="Tipo1" alt="">
-                    <img src="" id="Tipo2" alt="">
+                    <img src="" id="img2" title="Clique para alternar imagem" alt="">
+
+                    <div class="tipos">
+                        <img src="" id="Tipo1" alt="">
+                        <img src="" id="Tipo2" alt="">
+                    </div>
+
+
+
                 </div>
 
-                    
+                <div class="sta-cont">
+                    <p class="stats" id="hp"></p>
+                    <p class="stats" id="ataque"></p>
+                    <p class="stats" id="defesa"></p>
+                    <p class="stats" id="sp-ata"></p>
+                    <p class="stats" id="sp-def"></p>
+                    <p class="stats" id="velocidade"></p>
+                </div>
+
+
+                <button id="virarCostas"> voltar </button>
+
+
+
             </div>
 
-            <button id="virarCostas"> virar o card </button>
-             
-
-
         </div>
 
-        </div>
-
-        </div>
+    </div>
     </div>
 
 
 
 
     <script src="srcipt.js"></script>
-    
+
 
 </body>
 
