@@ -58,7 +58,6 @@ body {
 }
 
 #fundo {
-    background-color: #000;
     height: 390px;
     width: 400px;
     background-image: url(https://wallpaperaccess.com/full/3551101.png);
@@ -153,4 +152,9 @@ button:hover {
 #costas > h1 {
     margin-top: 0;
     padding-top: 0;
+}
+
+#proximo  img {
+    height: 30px;
+    width: 120px;
 }

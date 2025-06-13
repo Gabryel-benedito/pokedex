@@ -15,7 +15,7 @@ const sp_ata = document.getElementById("sp-ata");
 const sp_def = document.getElementById("sp-def");
 const speed = document.getElementById("velocidade");
 
-var pokemonAtual = 1;
+var pokemonAtual = 0;
 
 
 function gerarPokemon(valor) {
