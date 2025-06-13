@@ -17,6 +17,16 @@ const speed = document.getElementById("velocidade");
 
 var pokemonAtual = 0;
 
+function atualizarStats(stats) {
+    const maxStat = 200; // valor máximo base para porcentagem
+
+    hp.style.width = `${(stats.hp / maxStat) * 100}%`;
+    ataque.style.width = `${(stats.attack / maxStat) * 100}%`;
+    defesa.style.width = `${(stats.defense / maxStat) * 100}%`;
+    sp_ata.style.width = `${(stats.specialAttack / maxStat) * 100}%`;
+    sp_def.style.width = `${(stats.specialDefense / maxStat) * 100}%`;
+    speed.style.width = `${(stats.speed / maxStat) * 100}%`;
+}
 
 function gerarPokemon(valor) {
     const url = "https://pokeapi.co/api/v2/pokemon/" + valor
@@ -55,28 +65,43 @@ function gerarPokemon(valor) {
             nome.style.textAlign = "center";
             nome.style.color = "black";
 
-            nomeCostas.style.fontSize = "30px";
+            nomeCostas.style.fontSize = "20px";
             nomeCostas.style.textAlign = "center";
             nomeCostas.style.color = "black";
 
 
-            hp.innerText = " HP: " + dados.stats[0].base_stat
-            hp.style.border = " 0.5px solid black ";
+            // Cria objeto com os valores dos stats da API
+            const stats = {
+                hp: dados.stats[0].base_stat,
+                attack: dados.stats[1].base_stat,
+                defense: dados.stats[2].base_stat,
+                specialAttack: dados.stats[3].base_stat,
+                specialDefense: dados.stats[4].base_stat,
+                speed: dados.stats[5].base_stat
+            };
 
-            ataque.innerText = " ATAQUE: " + dados.stats[1].base_stat
-            ataque.style.border = " 0.5px solid black ";
+            // Atualiza visualmente as barras de status com base nesses valores
+            atualizarStats(stats);
 
-            defesa.innerText = " DEFESA: " + dados.stats[2].base_stat
-            defesa.style.border = " 0.5px solid black ";
+            // Também atualiza os textos dos status
+            hp.innerText = stats.hp;
+            hp.style.fontSize = "15px"
 
-            sp_ata.innerText = " ATAQUE-ESPECIAL: " + dados.stats[3].base_stat
-            sp_ata.style.border = " 0.5px solid black ";
+            ataque.innerText =  stats.attack;
+            ataque.style.fontSize = "15px"
 
-            sp_def.innerText = " DEFESA-ESPECIAL: " + dados.stats[4].base_stat
-            sp_def.style.border = " 0.5px solid black ";
+            defesa.innerText = stats.defense;
+            defesa.style.fontSize = "15px"
 
-            speed.innerText = " VELOCIDADE: " + dados.stats[5].base_stat
-            speed.style.border = " 0.5px solid black ";
+            sp_ata.innerText =  stats.specialAttack;
+            sp_ata.style.fontSize = "15px"
+
+            sp_def.innerText = stats.specialDefense;
+            sp_def.style.fontSize = "15px"
+
+            speed.innerText =  stats.speed;
+            speed.style.fontSize = "15px"
+
 
 
 
@@ -107,7 +132,7 @@ function gerarPokemon(valor) {
                 tipo2.style.display = "none";
             }
 
-           
+
         })
 
 
@@ -125,7 +150,7 @@ function Anterior() {
         gerarPokemon(pokemonAtual);
     }
 
-} 
+}
 
 
 
@@ -222,6 +247,7 @@ input.addEventListener("keypress", (evento) => {
         gerarPokemon(input.value.toLowerCase())
     }
 })
+
 but.addEventListener("click", () => gerarPokemon(input.value.toLowerCase()));
 img.addEventListener("click", () => mudaImagem(-1))
 imgCostas.addEventListener("click", () => mudaImagem(-1))

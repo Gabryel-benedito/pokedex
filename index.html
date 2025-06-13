@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Pokedex</title>
+    <link rel="shortcut icon" href="imagens/rotom.png" type="image/x-icon">
 </head>
 
 <body>
@@ -67,15 +68,45 @@
 
                 </div>
 
-                <div class="sta-cont">
-                    <p class="stats" id="hp"></p>
-                    <p class="stats" id="ataque"></p>
-                    <p class="stats" id="defesa"></p>
-                    <p class="stats" id="sp-ata"></p>
-                    <p class="stats" id="sp-def"></p>
-                    <p class="stats" id="velocidade"></p>
+                <div class="sta-cont barra">
+                    <div class="stat">
+                        <span>HP </span>
+                        <div class="bar"><div class="fill" id="hp"></div></div>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>Ataque </span>
+                        <div class="bar"><div class="fill" id="ataque"></div></div>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>Defesa </span>
+                        <div class="bar"><div class="fill" id="defesa"></div></div>
+                    </div>
+                    <div class="stat">
+                        <span>Sp. Ata </span>
+                        <div class="bar"><div class="fill" id="sp-ata"></div></div>
+                    </div>
+                    <div class="stat">
+                        <span>Sp. Def </span>
+                        <div class="bar"><div class="fill" id="sp-def"></div></div>
+                    </div>
+                    <div class="stat">
+                        <span>Speed </span>
+                        <div class="bar"><div class="fill" id="velocidade"></div></div>
+                    </div>
                 </div>
+                
 
+            <!-- <div class="sta-cont barra">
+                    <p class="stats porcentagem" id="ataque"></p>
+                    <p class="stats porcentagem" id="hp"></p>
+                    <p class="stats porcentagem" id="defesa"></p>
+                    <p class="stats porcentagem" id="sp-ata"></p>
+                    <p class="stats porcentagem" id="sp-def"></p>
+                    <p class="stats porcentagem" id="velocidade"></p>
+                </div>  
+-->
 
                 <button id="virarCostas"> voltar </button>
 
