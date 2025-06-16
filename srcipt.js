@@ -87,19 +87,19 @@ function gerarPokemon(valor) {
             hp.innerText = stats.hp;
             hp.style.fontSize = "15px"
 
-            ataque.innerText =  stats.attack;
+            ataque.innerText = stats.attack;
             ataque.style.fontSize = "15px"
 
             defesa.innerText = stats.defense;
             defesa.style.fontSize = "15px"
 
-            sp_ata.innerText =  stats.specialAttack;
+            sp_ata.innerText = stats.specialAttack;
             sp_ata.style.fontSize = "15px"
 
             sp_def.innerText = stats.specialDefense;
             sp_def.style.fontSize = "15px"
 
-            speed.innerText =  stats.speed;
+            speed.innerText = stats.speed;
             speed.style.fontSize = "15px"
 
 
@@ -108,17 +108,21 @@ function gerarPokemon(valor) {
             tipo1.src = `imagens/${dados.types[0].type.name}.png `
             tipo1.style.height = "50px"
             tipo1.style.width = "50px"
+            tipo1.style.display = "inline-block";
             tipo1.style.paddingTop = "20px";
             tipo1.title = dados.types[0].type.name;
+
             tipo1Costas.src = `imagens/${dados.types[0].type.name}.png `
             tipo1Costas.style.height = "35px"
             tipo1Costas.style.width = "35px"
+            tipo1Costas.style.display = "inline-block";
             tipo1Costas.style.paddingTop = "5px";
             tipo1Costas.title = dados.types[0].type.name;
 
-            if (dados.types.length >= 1) {
+            if (dados.types.length > 1) {
                 tipo2.src = `imagens/${dados.types[1].type.name}.png`;
                 tipo2.style.height = "50px";
+                tipo2.style.display = "inline-block";
                 tipo2.style.width = "50px";
                 tipo2.style.paddingTop = "20px";
                 tipo2.title = dados.types[1].type.name;
@@ -126,10 +130,12 @@ function gerarPokemon(valor) {
                 tipo2Costas.src = `imagens/${dados.types[1].type.name}.png`;
                 tipo2Costas.style.height = "35px";
                 tipo2Costas.style.width = "35px";
+                tipo2Costas.style.display = "inline-block";
                 tipo2Costas.style.paddingTop = "5px";
                 tipo2Costas.title = dados.types[1].type.name;
             } else {
                 tipo2.style.display = "none";
+                tipo2Costas.style.display = "none";
             }
 
 
